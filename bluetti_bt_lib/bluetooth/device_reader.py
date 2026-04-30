@@ -252,6 +252,7 @@ class DeviceReader:
                 self.logger.error(
                     "Received encrypted message before key initialization"
                 )
+                return
 
             key, iv = self.encryption.getKeyIv()
             decrypted = Message(self.encryption.aes_decrypt(message.buffer, key, iv))
